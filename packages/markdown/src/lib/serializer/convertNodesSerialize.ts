@@ -12,6 +12,7 @@ import type { unistLib } from '../types';
 import type { SerializeMdOptions } from './serializeMd';
 
 import { convertTextsSerialize } from './convertTextsSerialize';
+import { shouldSerializeNode } from './internal/shouldSerializeNode';
 import { listToMdastTree } from './listToMdastTree';
 import { unreachable } from './utils';
 import { getSerializerByKey } from './utils/getSerializerByKey';
@@ -30,7 +31,18 @@ export const convertNodesSerialize = (
   for (let i = 0; i <= nodes.length; i++) {
     const n = nodes[i] as any;
 
-    if (n && TextApi.isText(n)) {
+    if (n && TextApi.isText(n) && (n as { rawHtml?: unknown }).rawHtml) {
+      if (textQueue.length > 0) {
+        mdastNodes.push(
+          ...(convertTextsSerialize(
+            textQueue,
+            options
+          ) as any as unistLib.Node[])
+        );
+        textQueue = [];
+      }
+      mdastNodes.push({ type: 'html', value: n.text } as unistLib.Node);
+    } else if (n && TextApi.isText(n)) {
       // Only add text nodes that pass the filtering
       if (shouldIncludeText(n, options)) {
         textQueue.push(n);
@@ -48,7 +60,7 @@ export const convertNodesSerialize = (
       if (!n) continue;
 
       // Skip this node if it doesn't pass the filtering
-      if (!shouldIncludeNode(n, options)) {
+      if (!shouldSerializeNode(n, options)) {
         continue;
       }
 
@@ -162,42 +174,6 @@ const shouldIncludeText = (
   // Finally, check allowNode if provided
   if (allowNode?.serialize) {
     return allowNode.serialize(text);
-  }
-
-  return true;
-};
-
-const shouldIncludeNode = (
-  node: TElement,
-  options: SerializeMdOptions
-): boolean => {
-  const { allowedNodes, allowNode, disallowedNodes } = options;
-
-  if (!node.type) return true;
-
-  // First check allowedNodes/disallowedNodes
-  if (
-    allowedNodes &&
-    disallowedNodes &&
-    allowedNodes.length > 0 &&
-    disallowedNodes.length > 0
-  ) {
-    throw new Error('Cannot combine allowedNodes with disallowedNodes');
-  }
-
-  if (allowedNodes) {
-    // If allowedNodes is specified, only include if the type is in allowedNodes
-    if (!allowedNodes.includes(node.type)) {
-      return false;
-    }
-  } else if (disallowedNodes?.includes(node.type)) {
-    // If using disallowedNodes, exclude if the type is in disallowedNodes
-    return false;
-  }
-
-  // Finally, check allowNode if provided
-  if (allowNode?.serialize) {
-    return allowNode.serialize(node);
   }
 
   return true;

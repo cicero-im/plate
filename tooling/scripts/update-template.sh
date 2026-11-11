@@ -138,6 +138,19 @@ fi
 normalize_relative_ts_imports "$TEMPLATE_DIR/src"
 normalize_react_day_picker_api "$TEMPLATE_DIR"
 
+if [[ "$MODE" == "ai" ]]; then
+  cp "$BASE/tooling/templates/plate-playground-template/README.md" "$TEMPLATE_DIR/README.md"
+  cp "$BASE/tooling/templates/plate-playground-template/.env.example" "$TEMPLATE_DIR/.env.example"
+fi
+
+# Generated source uses the repository's installed compiler/lint toolchain.
+toolchain_dependencies=()
+for dependency in @biomejs/biome @typescript-eslint/parser eslint eslint-plugin-react-hooks typescript ultracite; do
+  version="$(node -p "require(process.argv[1] + '/node_modules/' + process.argv[2] + '/package.json').version" "$BASE" "$dependency")"
+  toolchain_dependencies+=("$dependency@$version")
+done
+bun add --dev --exact "${toolchain_dependencies[@]}"
+
 echo "Running bun lint:fix..."
 bun lint:fix
 

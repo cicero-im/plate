@@ -5,7 +5,7 @@ export const uiComponents: Registry['items'] = [
     dependencies: [
       '@platejs/ai',
       '@platejs/selection',
-      'ai@6',
+      'ai@7',
       'cmdk',
       '@faker-js/faker',
     ],
@@ -214,7 +214,12 @@ export const uiComponents: Registry['items'] = [
     type: 'registry:ui',
   },
   {
-    dependencies: ['@platejs/comment', 'date-fns', '@platejs/suggestion'],
+    dependencies: [
+      '@platejs/comment',
+      '@platejs/floating',
+      '@platejs/suggestion',
+      'date-fns',
+    ],
     description:
       'A popover interface for managing discussions: comments, replies, suggestions.',
     files: [

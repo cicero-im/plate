@@ -1,5 +1,73 @@
 # @platejs/markdown
 
+## 53.5.3
+
+### Patch Changes
+
+- [#5328](https://github.com/udecode/plate/pull/5328) by [@yulman2207](https://github.com/yulman2207) –
+
+  - Read CRLF and CR line endings in `deserializeMd` input as LF, so the value and the `serializeMd` output match the LF version of the same Markdown. Before, CRLF input kept `\r` at the end of code lines, paragraph and list lines, inline code and math, and the serialized output mixed line endings.
+
+- [#5329](https://github.com/udecode/plate/pull/5329) by [@yulman2207](https://github.com/yulman2207) –
+  - Fix `deserializeMd` dropping a soft line break after a link, mark or inline code, which joined the words on either side of the break.
+
+## 53.3.18
+
+### Patch Changes
+
+- [#5185](https://github.com/udecode/plate/pull/5185) by [@ybai08](https://github.com/ybai08) –
+
+  - Apply `allowedNodes`, `disallowedNodes` and `allowNode` to the children of bold, italic and strikethrough, so `disallowedNodes: ['a']` also removes a link inside `**…**`. An `allowedNodes` list now needs `text`, and any inline type such as `a`, listed to keep that content inside these marks, as it already does outside them.
+
+- [#5179](https://github.com/udecode/plate/pull/5179) by [@dylans](https://github.com/dylans) –
+
+  - Keep HTML that has no rule as source: unknown tags, raw `html` nodes and HTML comments deserialize as a text leaf with `rawHtml: true` and serialize back unescaped. Before, `<b>x</b>` came back as `\<b>x\</b>`, and comments were dropped.
+  - Keep Markdown inside unknown tags: `` <b>`code`</b> `` no longer loses its backticks, and a list or paragraph inside a block tag such as `<details>` keeps the blank lines around it, so it still renders as Markdown.
+
+- [#5177](https://github.com/udecode/plate/pull/5177) by [@dylans](https://github.com/dylans) –
+
+  - Deserialize reference links and images (`[text][id]`, `[id][]`, `[id]`, `![alt][id]`) as `a` and `img` nodes using the matching definition's URL. They were dropped before, so a paragraph holding only a reference link came back empty.
+
+- [#5178](https://github.com/udecode/plate/pull/5178) by [@dylans](https://github.com/dylans) –
+  - Stop serializing the empty text around inline elements (links, mentions, footnote references) as a zero-width space. Only an empty paragraph is written as `​` now, so Markdown output no longer carries invisible characters at the start or end of a paragraph.
+
+## 53.3.17
+
+### Patch Changes
+
+- [#5159](https://github.com/udecode/plate/pull/5159) by [@SahinurDEV](https://github.com/SahinurDEV) – Fix email autolinks losing later Markdown content when MDX is configured on Plate's default Markdown parser. Keep ordinary link and image URLs and existing JSX formatting when parsing autolinks.
+
+- [#5141](https://github.com/udecode/plate/pull/5141) by [@zbeyens](https://github.com/zbeyens) –
+  - Apply `disallowedNodes` to HTML and MDX elements by the key of their deserialize rule, so with `remark-mdx`, `disallowedNodes: ['a']` also removes `<a href>`.
+
+## 53.3.15
+
+### Patch Changes
+
+- [#5139](https://github.com/udecode/plate/pull/5139) by [@OrbitingBucket](https://github.com/OrbitingBucket) –
+  - Deserialize `<ul>` and `<ol>` inside table cells as indent-list paragraphs, including nested lists, `<ol start>`, and checkbox todo items.
+  - Serialize list paragraphs inside table cells as `<ul>` and `<ol>` instead of breaking the table row.
+  - Serialize line breaks inside table cells as `<br/>`.
+  - Fix inline HTML `<a href>` links losing their URL on deserialize.
+
+## 53.3.12
+
+### Patch Changes
+
+- [#5120](https://github.com/udecode/plate/pull/5120) by [@zbeyens](https://github.com/zbeyens) – Preserve link text and destinations when serializing Markdown.
+
+## 53.3.3
+
+### Patch Changes
+
+- [#5068](https://github.com/udecode/plate/pull/5068) by [@WilliamPeralta](https://github.com/WilliamPeralta) – Keep custom inline elements inside a table cell's paragraph when deserializing markdown. The cell deserializer recognised only `inlineEquation` as inline, so any other custom inline element was hoisted out of the paragraph and became its sibling. The cell serializer then separated those siblings with `<br/>`, and a second round trip turned that into a newline — silently destroying the element. The check now asks the editor whether the node is inline, which is the same answer the plugin configuration already holds.
+
+## 53.2.2
+
+### Patch Changes
+
+- [#5026](https://github.com/udecode/plate/pull/5026) by [@zbeyens](https://github.com/zbeyens) – Serialize hard line breaks inside paragraph text nodes.
+
 ## 53.1.5
 
 ### Patch Changes

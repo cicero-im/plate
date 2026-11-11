@@ -1,90 +1,62 @@
 {
   "version": 1,
   "skills": {
-    "autogoal": {
+    "chips": {
       "source": "udecode/dotai",
       "sourceType": "github",
-      "skillPath": "skills/autogoal/SKILL.md",
-      "computedHash": "b39af211b4e83be092b60f376eac2b58aad58089d904a73058d33f36610ad93a"
+      "skillPath": "skills/chips/SKILL.md",
+      "computedHash": "f88023bad8aeec22a931dde736438d81a6d1a6b0ca51fe3c1e5e639478209287"
     },
-    "autoreview": {
-      "source": "openclaw/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/autoreview/SKILL.md",
-      "computedHash": "c01ad85b2dc7e1e3bdcb91f3e8e21eb5fcfda0ddf7924fe47a62b37f00928b33"
-    },
-    "debug": {
+    "cleanup": {
       "source": "udecode/dotai",
       "sourceType": "github",
-      "skillPath": "skills/debug/SKILL.md",
-      "computedHash": "0c74e2022d4b01170526cc5aabd386dd76f9a65e8b23df92a947bb52504e26b1"
+      "skillPath": "skills/cleanup/SKILL.md",
+      "computedHash": "1c0629ca84974792a262e281fbd2f8e9cc88265c2f885ddfdaa701f7eb142731"
     },
-    "frontend-design": {
-      "source": "EveryInc/compound-engineering-plugin",
-      "sourceType": "github",
-      "computedHash": "74cd07a31632a72d763b96257a8c86b5c80384770ef67e600f73ffa75b69a1e2"
-    },
-    "git-commit": {
-      "source": "EveryInc/compound-engineering-plugin",
-      "sourceType": "github",
-      "computedHash": "1c76aaf68b93a16306be4d43d06ca77443c2555eff78a8d85125cc9ba4b067a1"
-    },
-    "git-commit-push-pr": {
-      "source": "EveryInc/compound-engineering-plugin",
-      "sourceType": "github",
-      "computedHash": "20c90be5091df67d3f889a781473a6426d471405cead3dbe61d33d0c9a4ad0e9"
-    },
-    "orchestrator": {
+    "plan-page": {
       "source": "udecode/dotai",
       "sourceType": "github",
-      "computedHash": "02a6d9c3931f0af4b6d0a04344082c90dd7d9cb9dbe1e4962bd98471591f02d8"
+      "skillPath": "skills/plan-page/SKILL.md",
+      "computedHash": "2f4f160846b6ea4d46c9512052247be23fb5571ece3a3b90e4d603dda403f049"
     },
-    "react-useeffect": {
-      "source": "softaworks/agent-toolkit",
+    "redo": {
+      "source": "udecode/dotai",
       "sourceType": "github",
-      "computedHash": "8c24990b50f431a570f3ad1f60632dee154431861547103047f6ce80092ca734"
-    },
-    "reproduce-bug": {
-      "source": "EveryInc/compound-engineering-plugin",
-      "sourceType": "github",
-      "computedHash": "4ab5b5b526782ec8800515d2cd5bcc2294b3c16043122b49048ae688f39776d5"
-    },
-    "resolve-pr-feedback": {
-      "source": "EveryInc/compound-engineering-plugin",
-      "sourceType": "github",
-      "computedHash": "4294136549ac279a00eb4a9eb731ea0d3b4e478433ade99ea81b8b04fbc36678"
+      "skillPath": "skills/redo/SKILL.md",
+      "computedHash": "d4a13f213fc569ba248556b3a31ae2e461e609867582cfaca071edd16d06fa4d"
     },
     "shadcn": {
       "source": "shadcn/ui",
       "sourceType": "github",
-      "computedHash": "507f011a70e8b3ae242bdc0bb5b39fd91a1d4049a0f3c281991ccf84973d591c"
+      "computedHash": "c1a68ee06a668aced9ab2b5fbdea5f989864123794eb2e056b339a072dbb7f10"
     },
     "tanstack-virtual": {
       "source": "tanstack-skills/tanstack-skills",
       "sourceType": "github",
       "computedHash": "987d0fcffeac700cea1303a13a9cecd8a4583985dd675f97ebbca27bfa592b47"
     },
-    "tdd": {
+    "test-audit": {
       "source": "udecode/dotai",
       "sourceType": "github",
-      "skillPath": "skills/tdd/SKILL.md",
-      "computedHash": "117755128a6b66a3faf32d0bb9740837b1ab4471286dda6c4c5674d803fbbbe5"
-    },
-    "typescript-advanced-types": {
-      "source": "wshobson/agents",
-      "sourceType": "github",
-      "computedHash": "3a3be8c925f96ac4e1280db28a01677e7ca5197f3792de2bbf35ab3bb324b6dd"
+      "skillPath": "skills/test-audit/SKILL.md",
+      "computedHash": "6097fc0e3a7adb2de0a6e0be5008fe4afb6b2c4ebc5c29507f58499904112a04"
     },
     "vercel-react-best-practices": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
-      "computedHash": "1be892a3ea68b74654326ef836a58dd528d99ae0ab8d879764e2519c39068e67"
+      "computedHash": "3219a1944e404ffc14d1d9d6aef6dd2e3855b81387ee0a044ccbfe14d34c2357"
     },
     "video-transcripts": {
       "source": "udecode/dotai",
       "sourceType": "github",
       "skillPath": "skills/video-transcripts/SKILL.md",
-      "computedHash": "dfce0b8ea81350223ee9967acbad18eb589e17aebf91e87e94b07dfaa86db471"
+      "computedHash": "156e8c855d2146504a7bdb66ff7a14012167fd9c19c5a4d486437851d061ca87"
+    },
+    "walkthrough": {
+      "source": "udecode/dotai",
+      "sourceType": "github",
+      "skillPath": "skills/walkthrough/SKILL.md",
+      "computedHash": "693e514613dbd1aae21ea48ca430962c93e70adc14d10c0a4f70dc2dc76c8a3a"
     }
   }
 }

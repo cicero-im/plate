@@ -1,5 +1,53 @@
 # @platejs/ai
 
+## 53.5.3
+
+### Patch Changes
+
+- Updated `@platejs/markdown`.
+
+## 53.3.18
+
+### Patch Changes
+
+- Updated `@platejs/markdown`.
+
+## 53.3.17
+
+### Patch Changes
+
+- Updated `@platejs/markdown`.
+
+## 53.3.15
+
+### Patch Changes
+
+- Updated `@platejs/markdown`.
+
+## 53.3.12
+
+### Patch Changes
+
+- Updated `@platejs/markdown`.
+
+## 53.3.3
+
+### Patch Changes
+
+- Updated `@platejs/markdown`.
+
+## 53.3.0
+
+### Minor Changes
+
+- [`34fdca42f73e7dd30d94db31058c28662dbb9212`](https://github.com/udecode/plate/commit/34fdca42f73e7dd30d94db31058c28662dbb9212) – Support AI SDK v7 chat helper types.
+
+## 53.2.2
+
+### Patch Changes
+
+- [#5026](https://github.com/udecode/plate/pull/5026) by [@zbeyens](https://github.com/zbeyens) – Preserve streaming trailing whitespace with markdown hard breaks.
+
 ## 53.1.6
 
 ### Patch Changes

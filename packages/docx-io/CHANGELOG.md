@@ -1,5 +1,73 @@
 # @platejs/docx-io
 
+## 53.5.5
+
+### Patch Changes
+
+- [#5333](https://github.com/udecode/plate/pull/5333) by [@zbeyens](https://github.com/zbeyens) –
+  - Stop writing an extra blank paragraph after each image, and after any other void element, when exporting to DOCX.
+
+## 53.5.4
+
+### Patch Changes
+
+- [#5331](https://github.com/udecode/plate/pull/5331) by [@zbeyens](https://github.com/zbeyens) –
+  - Preserve images and formatted captions inside table cells and list items when exporting to DOCX.
+  - Keep continuation paragraphs separate within a list item without adding extra list markers.
+  - Fit images within their table cell or list text width and preserve the image paragraph indentation.
+
+## 53.5.1
+
+### Patch Changes
+
+- [#5232](https://github.com/udecode/plate/pull/5232) by [@yulman2207](https://github.com/yulman2207) –
+  - Fix tables nested in table cells missing from the exported DOCX.
+  - Fix invalid DOCX output for a table cell that holds only a skipped image, such as a WebP.
+
+## 53.5.0
+
+### Minor Changes
+
+- [#5233](https://github.com/udecode/plate/pull/5233) by [@vincent69001](https://github.com/vincent69001) –
+  - Add `paragraphSpacing` and `headingSpacing` to `exportToDocx`, `exportEditorToDocx`, `editor.api.docxExport.exportToBlob`, `editor.tf.docxExport.exportAndDownload` and `htmlToDocxBlob` to set the space Word adds around paragraphs and headings, in twentieths of a point. Without them the file is unchanged.
+
+## 53.4.0
+
+### Minor Changes
+
+- [#5193](https://github.com/udecode/plate/pull/5193) by [@vincent69001](https://github.com/vincent69001) –
+  - Add `pageNumber` to `exportToDocx`, `exportEditorToDocx`, `editor.api.docxExport.exportToBlob` and `editor.tf.docxExport.exportAndDownload` to number the pages in a footer.
+
+## 53.3.17
+
+### Patch Changes
+
+- [#5161](https://github.com/udecode/plate/pull/5161) by [@vincent69001](https://github.com/vincent69001) – Fix `<br>` export: Word for Mac no longer labels it as a text wrapping break, and Word no longer stretches the justified line that ends with it, a setting that applies to the whole document.
+
+- [#5150](https://github.com/udecode/plate/pull/5150) by [@vincent69001](https://github.com/vincent69001) – Fix DOCX export losing marks on text that carries several marks (for example bold and italic) and leaking a mark onto the text that follows it
+
+## 53.3.16
+
+### Patch Changes
+
+- [#5148](https://github.com/udecode/plate/pull/5148) by [@zbeyens](https://github.com/zbeyens) – Fix DOCX export failures with quoted font names in inline styles.
+
+- [#5145](https://github.com/udecode/plate/pull/5145) by [@vincent69001](https://github.com/vincent69001) – Fix `line-height` export: `px`, `pt`, `cm` and `in` values become an absolute line height, `%` and unitless values a line multiplier that no longer scales with the font size.
+
+## 53.3.10
+
+### Patch Changes
+
+- [`dfe6805`](https://github.com/udecode/plate/commit/dfe680559e9167b0e8aaf462488467783d4abc5b) by [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D) – Preserve equation output while ignoring unrelated XML
+
+## 53.3.2
+
+### Patch Changes
+
+- [#5053](https://github.com/udecode/plate/pull/5053) by [@zbeyens](https://github.com/zbeyens) – Skip remote image URLs by default during DOCX export.
+
+  **Migration:** Convert trusted remote images to data URIs before calling `htmlToDocxBlob`, or pass `allowRemoteImages: true` only when the HTML source is trusted.
+
 ## 53.1.0
 
 ### Minor Changes

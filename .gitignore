@@ -104,6 +104,8 @@ pnpm-error.log*
 
 # next.js build output
 .next
+/apps/www/.next-*/
+/apps/www/.source-async/
 
 # System Files
 .DS_Store
@@ -136,3 +138,7 @@ packages/plate/docs/
 # Autoresearch session state
 /autoresearch.*
 /autoresearch.research/
+
+# Local workflow evidence and durable decision records
+/docs/plans/artifacts/
+!docs/plans/*.decisions.tsv

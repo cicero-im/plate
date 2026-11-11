@@ -1,5 +1,83 @@
 # @platejs/utils
 
+## 53.5.2
+
+### Patch Changes
+
+- Updated `@platejs/core`.
+
+## 53.3.18
+
+### Patch Changes
+
+- Updated `@platejs/core`, `@platejs/slate`.
+
+## 53.3.15
+
+### Patch Changes
+
+- Updated `@platejs/core`, `@platejs/slate`.
+
+## 53.3.14
+
+### Patch Changes
+
+- Updated `@platejs/core`.
+
+## 53.3.11
+
+### Patch Changes
+
+- Updated `@platejs/core`.
+
+## 53.3.10
+
+### Patch Changes
+
+- Updated `@platejs/core`, `@platejs/slate`.
+
+## 53.3.9
+
+### Patch Changes
+
+- Updated `@platejs/core`.
+
+## 53.3.7
+
+### Patch Changes
+
+- Updated `@platejs/core`.
+
+## 53.3.6
+
+### Patch Changes
+
+- Updated `@platejs/core`.
+
+## 53.3.5
+
+### Patch Changes
+
+- Updated `@platejs/core`, `@platejs/slate`.
+
+## 53.3.4
+
+### Patch Changes
+
+- Updated `@platejs/core`, `@platejs/slate`.
+
+## 53.3.3
+
+### Patch Changes
+
+- Updated `@platejs/core`, `@platejs/slate`.
+
+## 53.2.4
+
+### Patch Changes
+
+- Updated `@platejs/core`.
+
 ## 53.2.1
 
 ### Patch Changes

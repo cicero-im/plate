@@ -1,8 +1,73 @@
+import remarkParse from 'remark-parse';
+import { unified } from 'unified';
+import { visit } from 'unist-util-visit';
+
 import { createTestEditor } from './__tests__/createTestEditor';
 import { deserializeMd } from './deserializer';
 import { serializeMd } from './serializer';
 
 describe('gfm package surfaces', () => {
+  describe.each([
+    undefined,
+    false,
+    true,
+  ])('link context with resourceLink=%s', (resourceLink) => {
+    it.each([
+      'https://example.com/file.',
+      'https://example.com/a_b_',
+      'https://[::1]/docs',
+    ])('preserves surrounding text for %s', (url) => {
+      const editor = createTestEditor();
+      const value = [
+        {
+          children: [
+            { text: 'Before ' },
+            { children: [{ text: url }], type: 'a', url },
+            { text: ' after.' },
+          ],
+          type: 'p',
+        },
+      ];
+      const markdown = serializeMd(editor, {
+        remarkStringifyOptions: { resourceLink },
+        value,
+      });
+
+      expect(deserializeMd(editor, markdown)).toEqual(value);
+    });
+  });
+
+  it.each([
+    'https://example.com/a<b>',
+    'https://example.com/a b',
+    'https://example.com/a\\b',
+    'https://example.com/file.',
+    'https://example.com/file,',
+    'https://example.com/file)',
+    'https://example.com/file?',
+    'https://example.com/file;',
+  ])('preserves link text through Markdown serialization: %s', (url) => {
+    const editor = createTestEditor();
+    const value = [
+      {
+        children: [{ children: [{ text: url }], type: 'a', url }],
+        type: 'p',
+      },
+    ];
+
+    const markdown = serializeMd(editor, { value });
+    const parsed = unified().use(remarkParse).parse(markdown);
+    const htmlNodes: unknown[] = [];
+    visit(parsed, 'html', (node) => {
+      htmlNodes.push(node);
+    });
+
+    expect(htmlNodes).toEqual([]);
+    expect(deserializeMd(editor, markdown)[0].children[0]).toMatchObject(
+      value[0].children[0]
+    );
+  });
+
   it.each([
     {
       expected: 'https://platejs.org\n',

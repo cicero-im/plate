@@ -1,6 +1,77 @@
 {
   "schemaVersion": 1,
   "components": {
+    "plugin-rules-demo": ["2026-10-09-fix-empty-demo-elements"],
+    "code-block-demo": ["2026-10-09-fix-empty-demo-elements"],
+    "block-discussion": [
+      "2026-09-28-keep-comment-selection-visible",
+      "2026-04-29-codex-fix-discussion-suggestion-regressions",
+      "2025-11-20-biome-ultracite",
+      "2025-10-21-add-rejectaisuggestions"
+    ],
+    "comment-kit": [
+      "2026-09-28-keep-comment-selection-visible",
+      "2026-04-29-codex-fix-discussion-suggestion-regressions"
+    ],
+    "media-file-node": [
+      "2026-09-27-harden-media-file-urls",
+      "2026-04-29-codex-fix-discussion-suggestion-regressions",
+      "2025-10-17-fix-react-decouple"
+    ],
+    "equation-node": [
+      "2026-09-06-editor-content-and-service-defaults",
+      "2026-04-29-codex-fix-discussion-suggestion-regressions",
+      "2026-01-20-add-docx-file-import-word-export-support",
+      "2025-11-20-biome-ultracite",
+      "2025-10-17-fix-react-decouple"
+    ],
+    "equation-node-static": ["2026-09-06-editor-content-and-service-defaults"],
+    "media-preview-dialog": [
+      "2026-09-06-editor-content-and-service-defaults",
+      "2025-11-20-biome-ultracite"
+    ],
+    "ai-api": [
+      "2026-09-06-editor-content-and-service-defaults",
+      "2026-06-28-ai-sdk-v7",
+      "2026-01-09-support-using-ai-features-tables-improve-prompts",
+      "2025-11-20-biome-ultracite",
+      "2025-10-21-add-rejectaisuggestions"
+    ],
+    "copilot-api": [
+      "2026-09-06-editor-content-and-service-defaults",
+      "2026-06-28-ai-sdk-v7",
+      "2025-11-20-biome-ultracite"
+    ],
+    "media-uploadthing-api": ["2026-09-06-editor-content-and-service-defaults"],
+    "column-node": [
+      "2026-09-06-editor-content-and-service-defaults",
+      "2026-06-10-attach-column-drop-target-ref",
+      "2026-01-20-add-docx-file-import-word-export-support",
+      "2025-11-20-biome-ultracite",
+      "2025-10-17-fix-react-decouple"
+    ],
+    "table-node": [
+      "2026-09-06-editor-content-and-service-defaults",
+      "2026-07-09-table-toolbar-single-cell-selection",
+      "2026-03-22-table-improve-selection-bug-fixed-insert-issue",
+      "2026-01-20-add-docx-file-import-word-export-support",
+      "2025-11-20-biome-ultracite",
+      "2025-10-17-fix-react-decouple"
+    ],
+    "use-chat": [
+      "2026-06-28-ai-sdk-v7",
+      "2026-01-09-support-using-ai-features-tables-improve-prompts",
+      "2025-11-20-biome-ultracite"
+    ],
+    "markdown-joiner-transform": [
+      "2026-06-28-ai-sdk-v7",
+      "2025-11-20-biome-ultracite"
+    ],
+    "ai-menu": [
+      "2026-06-28-ai-sdk-v7",
+      "2026-01-09-support-using-ai-features-tables-improve-prompts",
+      "2025-11-20-biome-ultracite"
+    ],
     "editor": [
       "2026-06-15-editor-fix-preserved-space-wrapping",
       "2025-11-20-biome-ultracite",
@@ -25,27 +96,15 @@
     "code-block-node-static": [
       "2026-06-13-show-code-block-language-labels-read-only-mode"
     ],
-    "column-node": [
-      "2026-06-10-attach-column-drop-target-ref",
-      "2026-01-20-add-docx-file-import-word-export-support",
-      "2025-11-20-biome-ultracite",
-      "2025-10-17-fix-react-decouple"
-    ],
     "huge-document-demo": ["2026-06-02-improve-large-document-editing"],
     "hundreds-blocks-demo": [
       "2026-06-02-improve-large-document-editing",
       "2025-11-20-biome-ultracite"
     ],
-    "block-discussion": [
-      "2026-04-29-codex-fix-discussion-suggestion-regressions",
-      "2025-11-20-biome-ultracite",
-      "2025-10-21-add-rejectaisuggestions"
-    ],
     "discussion-kit": [
       "2026-04-29-codex-fix-discussion-suggestion-regressions",
       "2025-11-20-biome-ultracite"
     ],
-    "comment-kit": ["2026-04-29-codex-fix-discussion-suggestion-regressions"],
     "suggestion": ["2026-04-29-codex-fix-discussion-suggestion-regressions"],
     "suggestion-base-kit": [
       "2026-04-29-codex-fix-discussion-suggestion-regressions"
@@ -77,12 +136,6 @@
       "2026-01-20-add-docx-file-import-word-export-support",
       "2025-10-17-fix-react-decouple"
     ],
-    "equation-node": [
-      "2026-04-29-codex-fix-discussion-suggestion-regressions",
-      "2026-01-20-add-docx-file-import-word-export-support",
-      "2025-11-20-biome-ultracite",
-      "2025-10-17-fix-react-decouple"
-    ],
     "excalidraw-node": [
       "2026-04-29-codex-fix-discussion-suggestion-regressions"
     ],
@@ -93,10 +146,6 @@
     "media-embed-node": [
       "2026-04-29-codex-fix-discussion-suggestion-regressions",
       "2025-11-20-biome-ultracite"
-    ],
-    "media-file-node": [
-      "2026-04-29-codex-fix-discussion-suggestion-regressions",
-      "2025-10-17-fix-react-decouple"
     ],
     "media-image-node": [
       "2026-04-29-codex-fix-discussion-suggestion-regressions",
@@ -163,12 +212,6 @@
       "2026-03-27-snapshot-ai-streaming-preview-task-pr-flow",
       "2025-11-20-biome-ultracite"
     ],
-    "table-node": [
-      "2026-03-22-table-improve-selection-bug-fixed-insert-issue",
-      "2026-01-20-add-docx-file-import-word-export-support",
-      "2025-11-20-biome-ultracite",
-      "2025-10-17-fix-react-decouple"
-    ],
     "font-color-toolbar-button": [
       "2026-03-22-table-improve-selection-bug-fixed-insert-issue",
       "2026-03-19-improve-non-react-test-coverage-ci-workflow-hygiene",
@@ -202,19 +245,6 @@
       "2026-01-20-add-docx-file-import-word-export-support",
       "2025-11-20-biome-ultracite"
     ],
-    "ai-api": [
-      "2026-01-09-support-using-ai-features-tables-improve-prompts",
-      "2025-11-20-biome-ultracite",
-      "2025-10-21-add-rejectaisuggestions"
-    ],
-    "ai-menu": [
-      "2026-01-09-support-using-ai-features-tables-improve-prompts",
-      "2025-11-20-biome-ultracite"
-    ],
-    "use-chat": [
-      "2026-01-09-support-using-ai-features-tables-improve-prompts",
-      "2025-11-20-biome-ultracite"
-    ],
     "cursor-overlay": [
       "2026-01-09-support-using-ai-features-tables-improve-prompts",
       "2025-11-20-biome-ultracite"
@@ -225,11 +255,9 @@
       "2025-11-20-biome-ultracite"
     ],
     "mention-kit": ["2025-12-15-add-option-editor-collaborative-features"],
-    "copilot-api": ["2025-11-20-biome-ultracite"],
     "block-placeholder-kit": ["2025-11-20-biome-ultracite"],
     "block-selection-kit": ["2025-11-20-biome-ultracite"],
     "tabbable-kit": ["2025-11-20-biome-ultracite"],
-    "markdown-joiner-transform": ["2025-11-20-biome-ultracite"],
     "block-draggable": ["2025-11-20-biome-ultracite"],
     "code-node": [
       "2025-11-20-biome-ultracite",
@@ -244,7 +272,6 @@
     "list-classic-node": ["2025-11-20-biome-ultracite"],
     "list-classic-toolbar-button": ["2025-11-20-biome-ultracite"],
     "media-placeholder-node": ["2025-11-20-biome-ultracite"],
-    "media-preview-dialog": ["2025-11-20-biome-ultracite"],
     "media-toolbar": ["2025-11-20-biome-ultracite"],
     "media-toolbar-button": ["2025-11-20-biome-ultracite"],
     "mode-toolbar-button": ["2025-11-20-biome-ultracite"],

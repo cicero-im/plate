@@ -15,7 +15,7 @@
     },
     {
       "path": "src/registry/lib/uploadthing.ts",
-      "content": "import type { FileRouter } from 'uploadthing/next';\n\nimport { createUploadthing } from 'uploadthing/next';\n\nconst f = createUploadthing();\n\nexport const ourFileRouter = {\n  editorUploader: f(['image', 'text', 'blob', 'pdf', 'video', 'audio'])\n    .middleware(() => ({}))\n    .onUploadComplete(({ file }) => ({\n      key: file.key,\n      name: file.name,\n      size: file.size,\n      type: file.type,\n      url: file.ufsUrl,\n    })),\n} satisfies FileRouter;\n\nexport type OurFileRouter = typeof ourFileRouter;\n",
+      "content": "import type { FileRouter } from 'uploadthing/next';\n\nimport { createUploadthing } from 'uploadthing/next';\nimport { UploadThingError } from 'uploadthing/server';\n\nconst f = createUploadthing();\n\nexport const ourFileRouter = {\n  editorUploader: f(['image', 'text', 'blob', 'pdf', 'video', 'audio'])\n    .middleware(() => {\n      // Replace this development-only allowance with your application's session and permission checks.\n      if (process.env.NODE_ENV !== 'development') {\n        throw new UploadThingError({\n          code: 'FORBIDDEN',\n          message: 'Configure upload authorization before enabling uploads.',\n        });\n      }\n\n      return {};\n    })\n    .onUploadComplete(({ file }) => ({\n      key: file.key,\n      name: file.name,\n      size: file.size,\n      type: file.type,\n      url: file.ufsUrl,\n    })),\n} satisfies FileRouter;\n\nexport type OurFileRouter = typeof ourFileRouter;\n",
       "type": "registry:lib"
     }
   ],

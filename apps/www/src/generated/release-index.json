@@ -1,5 +1,558 @@
 [
   {
+    "changelogUrl": "https://github.com/udecode/plate/blob/d142cfb5b9358d97b3ec67448e7e00be41f067a4/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Breaking Changes\n\n- Prepare v54 beta prerelease versioning. ([#5031](https://github.com/udecode/plate/pull/5031))\n\n`@platejs/slate`\n\n### Breaking Changes\n\n- Prepare v54 beta prerelease versioning for Slate. ([#5031](https://github.com/udecode/plate/pull/5031))\n\n[`v53.5.6...v54.0.0-beta.0`](https://github.com/udecode/plate/compare/v53.5.6...v54.0.0-beta.0) · By [@felixfeng33](https://github.com/felixfeng33)",
+    "contributors": [
+      {
+        "url": "https://github.com/felixfeng33",
+        "username": "@felixfeng33"
+      }
+    ],
+    "date": "2026-06-16",
+    "packageTag": "platejs@54.0.0-beta.0",
+    "tag": "v54.0.0-beta.0",
+    "title": "v54.0.0-beta.0",
+    "type": "major",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5033",
+    "url": "https://github.com/udecode/plate/releases/tag/v54.0.0-beta.0"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/d0b599832620cef3c3087ebb5a7dd884d06213a3/packages/yjs/CHANGELOG.md",
+    "content": "`@platejs/yjs`\n\n### Bug Fixes\n\n-   - Accept `@hocuspocus/provider` v4 in the peer dependency range, so installing it no longer warns about an unmet peer. ([#5338](https://github.com/udecode/plate/pull/5338))\n\n[`v53.5.5...v53.5.6`](https://github.com/udecode/plate/compare/v53.5.5...v53.5.6) · By [@yulman2207](https://github.com/yulman2207)",
+    "contributors": [
+      {
+        "url": "https://github.com/yulman2207",
+        "username": "@yulman2207"
+      }
+    ],
+    "date": "2026-11-11",
+    "packageTag": "@platejs/yjs@53.5.6",
+    "tag": "v53.5.6",
+    "title": "v53.5.6",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5339",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.5.6"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/92ca08e08c299b0ff7d876ec21b1d106d261af22/packages/docx-io/CHANGELOG.md",
+    "content": "`@platejs/docx-io`\n\n### Bug Fixes\n\n-   - Stop writing an extra blank paragraph after each image, and after any other void element, when exporting to DOCX. ([#5333](https://github.com/udecode/plate/pull/5333))\n\n[`v53.5.4...v53.5.5`](https://github.com/udecode/plate/compare/v53.5.4...v53.5.5) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-11-04",
+    "packageTag": "@platejs/docx-io@53.5.5",
+    "tag": "v53.5.5",
+    "title": "v53.5.5",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5336",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.5.5"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/3d5eb413edab46afebb80b6bf95700b508b9e1b1/packages/docx-io/CHANGELOG.md",
+    "content": "`@platejs/docx-io`\n\n### Bug Fixes\n\n-   - Preserve images and formatted captions inside table cells and list items when exporting to DOCX. ([#5331](https://github.com/udecode/plate/pull/5331))\n  - Keep continuation paragraphs separate within a list item without adding extra list markers.\n  - Fit images within their table cell or list text width and preserve the image paragraph indentation.\n\n[`v53.5.3...v53.5.4`](https://github.com/udecode/plate/compare/%40platejs%2Fai%4053.5.3...%40platejs%2Fdocx-io%4053.5.4) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-11-04",
+    "packageTag": "@platejs/docx-io@53.5.4",
+    "tag": "v53.5.4",
+    "title": "v53.5.4",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5335",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.5.4"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/8ad209eaa0e51064089b7f1ba974c1155c91279e/packages/ai/CHANGELOG.md",
+    "content": "`@platejs/ai`\n\n### Bug Fixes\n\n- Updated `@platejs/markdown`.\n\n`@platejs/markdown`\n\n### Bug Fixes\n\n-   - Read CRLF and CR line endings in `deserializeMd` input as LF, so the value and the `serializeMd` output match the LF version of the same Markdown. Before, CRLF input kept `\\r` at the end of code lines, paragraph and list lines, inline code and math, and the serialized output mixed line endings. ([#5328](https://github.com/udecode/plate/pull/5328))\n\n-   - Fix `deserializeMd` dropping a soft line break after a link, mark or inline code, which joined the words on either side of the break. ([#5329](https://github.com/udecode/plate/pull/5329))\n\n[`CHANGELOG`](https://github.com/udecode/plate/pull/5334) · [`v53.5.2...v53.5.3`](https://github.com/udecode/plate/compare/platejs%4053.5.2...%40platejs%2Fai%4053.5.3) · By [@yulman2207](https://github.com/yulman2207)",
+    "contributors": [
+      {
+        "url": "https://github.com/yulman2207",
+        "username": "@yulman2207"
+      }
+    ],
+    "date": "2026-11-04",
+    "packageTag": "@platejs/ai@53.5.3",
+    "tag": "v53.5.3",
+    "title": "v53.5.3",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5334",
+    "url": "https://github.com/udecode/plate/pull/5334"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/7e03dbf6a3998ab752372edcaaf17f2cecdcbbc7/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n-   - Fix `useElement` and `usePath` re-rendering every descendant element when an ancestor element changes, such as every cell of a table on each keystroke in one cell. They now re-render only when their own element or path changes. ([#5325](https://github.com/udecode/plate/pull/5325))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/utils`.\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`.\n\n[`v53.5.1...v53.5.2`](https://github.com/udecode/plate/compare/v53.5.1...v53.5.2) · By [@dylans](https://github.com/dylans)",
+    "contributors": [
+      {
+        "url": "https://github.com/dylans",
+        "username": "@dylans"
+      }
+    ],
+    "date": "2026-10-30",
+    "packageTag": "platejs@53.5.2",
+    "tag": "v53.5.2",
+    "title": "v53.5.2",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5326",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.5.2"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/8b22e11319ecb4e980345a273807e919e66486ea/packages/docx-io/CHANGELOG.md",
+    "content": "`@platejs/docx-io`\n\n### Bug Fixes\n\n-   - Fix tables nested in table cells missing from the exported DOCX. ([#5232](https://github.com/udecode/plate/pull/5232))\n  - Fix invalid DOCX output for a table cell that holds only a skipped image, such as a WebP.\n\n[`v53.5.0...v53.5.1`](https://github.com/udecode/plate/compare/v53.5.0...v53.5.1) · By [@yulman2207](https://github.com/yulman2207)",
+    "contributors": [
+      {
+        "url": "https://github.com/yulman2207",
+        "username": "@yulman2207"
+      }
+    ],
+    "date": "2026-10-22",
+    "packageTag": "@platejs/docx-io@53.5.1",
+    "tag": "v53.5.1",
+    "title": "v53.5.1",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5236",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.5.1"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/ced77ca94e682d30e9f55cc96862b578410290e6/packages/docx-io/CHANGELOG.md",
+    "content": "`@platejs/docx-io`\n\n### Features\n\n-   - Add `paragraphSpacing` and `headingSpacing` to `exportToDocx`, `exportEditorToDocx`, `editor.api.docxExport.exportToBlob`, `editor.tf.docxExport.exportAndDownload` and `htmlToDocxBlob` to set the space Word adds around paragraphs and headings, in twentieths of a point. Without them the file is unchanged. ([#5233](https://github.com/udecode/plate/pull/5233))\n\n[`v53.4.0...v53.5.0`](https://github.com/udecode/plate/compare/v53.4.0...v53.5.0) · By [@vincent69001](https://github.com/vincent69001)",
+    "contributors": [
+      {
+        "url": "https://github.com/vincent69001",
+        "username": "@vincent69001"
+      }
+    ],
+    "date": "2026-10-21",
+    "packageTag": "@platejs/docx-io@53.5.0",
+    "tag": "v53.5.0",
+    "title": "v53.5.0",
+    "type": "minor",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5235",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.5.0"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/23904b9797e3a176f65eecfeaca7c87cd39a0634/packages/docx-io/CHANGELOG.md",
+    "content": "`@platejs/docx-io`\n\n### Features\n\n-   - Add `pageNumber` to `exportToDocx`, `exportEditorToDocx`, `editor.api.docxExport.exportToBlob` and `editor.tf.docxExport.exportAndDownload` to number the pages in a footer. ([#5193](https://github.com/udecode/plate/pull/5193))\n\n[`v53.3.18...v53.4.0`](https://github.com/udecode/plate/compare/v53.3.18...v53.4.0) · By [@vincent69001](https://github.com/vincent69001)",
+    "contributors": [
+      {
+        "url": "https://github.com/vincent69001",
+        "username": "@vincent69001"
+      }
+    ],
+    "date": "2026-10-19",
+    "packageTag": "@platejs/docx-io@53.4.0",
+    "tag": "v53.4.0",
+    "title": "v53.4.0",
+    "type": "minor",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5207",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.4.0"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/5b68e980aef1e22a79b68aed37d353ccb881ed3d/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/ai`\n\n### Bug Fixes\n\n- Updated `@platejs/markdown`.\n\n`@platejs/core`\n\n### Bug Fixes\n\n- Upgrade to slate 0.142.1, slate-dom 0.142.0, slate-react 0.142.0 and slate-hyperscript 0.138.3. ([#5172](https://github.com/udecode/plate/pull/5172))\n\n- Upgrade to slate 0.146.0, slate-dom 0.146.0 and slate-react 0.145.1. ([#5190](https://github.com/udecode/plate/pull/5190))\n\n`@platejs/markdown`\n\n### Bug Fixes\n\n-   - Apply `allowedNodes`, `disallowedNodes` and `allowNode` to the children of bold, italic and strikethrough, so `disallowedNodes: ['a']` also removes a link inside `**…**`. An `allowedNodes` list now needs `text`, and any inline type such as `a`, listed to keep that content inside these marks, as it already does outside them. ([#5185](https://github.com/udecode/plate/pull/5185))\n\n-   - Keep HTML that has no rule as source: unknown tags, raw `html` nodes and HTML comments deserialize as a text leaf with `rawHtml: true` and serialize back unescaped. Before, `<b>x</b>` came back as `\\<b>x\\</b>`, and comments were dropped. ([#5179](https://github.com/udecode/plate/pull/5179))\n  - Keep Markdown inside unknown tags: `` <b>`code`</b> `` no longer loses its backticks, and a list or paragraph inside a block tag such as `<details>` keeps the blank lines around it, so it still renders as Markdown.\n\n-   - Deserialize reference links and images (`[text][id]`, `[id][]`, `[id]`, `![alt][id]`) as `a` and `img` nodes using the matching definition's URL. They were dropped before, so a paragraph holding only a reference link came back empty. ([#5177](https://github.com/udecode/plate/pull/5177))\n\n-   - Stop serializing the empty text around inline elements (links, mentions, footnote references) as a zero-width space. Only an empty paragraph is written as `​` now, so Markdown output no longer carries invisible characters at the start or end of a paragraph. ([#5178](https://github.com/udecode/plate/pull/5178))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`, `@platejs/utils`.\n\n`@platejs/slate`\n\n### Bug Fixes\n\n- Bring the bundled history plugin up to date with slate-history: ([#5172](https://github.com/udecode/plate/pull/5172))\n\n  - `withoutSaving`, `withoutMerging`, `withMerging` and `withNewBatch` restore their flags when the callback throws, so one failed transform no longer stops history from recording.\n  - A nested `withNewBatch` keeps the enclosing batch's split.\n  - An edit no longer merges into the previous undo step just because another operation, such as a selection change, ran earlier in the same tick.\n  - Inside `withoutMerging`, a transform's normalization stays in the same undo step as the transform, so undoing it no longer leaves an unnormalized document behind.\n\n  `editor.hasRange` and `editor.api.hasRange` now share one implementation built on slate's `hasRange`, and still return `false` for a missing range.\n\n- Bring the bundled history plugin up to date with slate-history 0.144.0: ([#5190](https://github.com/udecode/plate/pull/5190))\n\n  - Add `editor.tf.setChildren(children)`, which applies an outside document through operations instead of replacing `editor.children`, so the selection, refs and history stay valid. Each call is its own undo step, separate from typing before and after it.\n  - Undo and redo now account for changes applied with `editor.tf.withoutSaving`. Saved steps are moved past each unsaved operation, so a block inserted above earlier typing, or text inserted before it, no longer makes undo remove the wrong characters. Steps whose content was removed, or that can no longer be applied, are dropped.\n\n- Upgrade to slate 0.142.1, slate-dom 0.142.0, slate-react 0.142.0 and slate-hyperscript 0.138.3. ([#5172](https://github.com/udecode/plate/pull/5172))\n\n- Upgrade to slate 0.146.0, slate-dom 0.146.0 and slate-react 0.145.1. ([#5190](https://github.com/udecode/plate/pull/5190))\n\n- Updated `slate`, `slate-dom`, `slate-react`. ([`cb4f514`](https://github.com/udecode/plate/commit/cb4f5146d61b01223e8fb815864b25c9a4e12b2e))\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`.\n\n[`v53.3.17...v53.3.18`](https://github.com/udecode/plate/compare/v53.3.17...v53.3.18) · By [@dylans](https://github.com/dylans), [@ybai08](https://github.com/ybai08), [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)",
+    "contributors": [
+      {
+        "url": "https://github.com/dylans",
+        "username": "@dylans"
+      },
+      {
+        "url": "https://github.com/ybai08",
+        "username": "@ybai08"
+      },
+      {
+        "url": "https://github.com/github-actions%5Bbot%5D",
+        "username": "@github-actions[bot]"
+      }
+    ],
+    "date": "2026-10-18",
+    "packageTag": "platejs@53.3.18",
+    "tag": "v53.3.18",
+    "title": "v53.3.18",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5174",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.18"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/e024e6fe1bf30aed26b3818d0a3bd6444f06f3db/packages/ai/CHANGELOG.md",
+    "content": "`@platejs/ai`\n\n### Bug Fixes\n\n- Updated `@platejs/markdown`.\n\n`@platejs/docx-io`\n\n### Bug Fixes\n\n- Fix `<br>` export: Word for Mac no longer labels it as a text wrapping break, and Word no longer stretches the justified line that ends with it, a setting that applies to the whole document. ([#5161](https://github.com/udecode/plate/pull/5161))\n\n- Fix DOCX export losing marks on text that carries several marks (for example bold and italic) and leaking a mark onto the text that follows it ([#5150](https://github.com/udecode/plate/pull/5150))\n\n`@platejs/markdown`\n\n### Bug Fixes\n\n- Fix email autolinks losing later Markdown content when MDX is configured on Plate's default Markdown parser. Keep ordinary link and image URLs and existing JSX formatting when parsing autolinks. ([#5159](https://github.com/udecode/plate/pull/5159))\n\n-   - Apply `disallowedNodes` to HTML and MDX elements by the key of their deserialize rule, so with `remark-mdx`, `disallowedNodes: ['a']` also removes `<a href>`. ([#5141](https://github.com/udecode/plate/pull/5141))\n\n[`v53.3.16...v53.3.17`](https://github.com/udecode/plate/compare/v53.3.16...v53.3.17) · By [@vincent69001](https://github.com/vincent69001), [@SahinurDEV](https://github.com/SahinurDEV), [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/vincent69001",
+        "username": "@vincent69001"
+      },
+      {
+        "url": "https://github.com/SahinurDEV",
+        "username": "@SahinurDEV"
+      },
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-10-14",
+    "packageTag": "@platejs/ai@53.3.17",
+    "tag": "v53.3.17",
+    "title": "v53.3.17",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5163",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.17"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/67f103ddbf4dc11488d0b6ce3784664c6720a0f7/packages/docx-io/CHANGELOG.md",
+    "content": "`@platejs/docx-io`\n\n### Bug Fixes\n\n- Fix DOCX export failures with quoted font names in inline styles. ([#5148](https://github.com/udecode/plate/pull/5148))\n\n- Fix `line-height` export: `px`, `pt`, `cm` and `in` values become an absolute line height, `%` and unitless values a line multiplier that no longer scales with the font size. ([#5145](https://github.com/udecode/plate/pull/5145))\n\n[`v53.3.15...v53.3.16`](https://github.com/udecode/plate/compare/v53.3.15...v53.3.16) · By [@zbeyens](https://github.com/zbeyens), [@vincent69001](https://github.com/vincent69001)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      },
+      {
+        "url": "https://github.com/vincent69001",
+        "username": "@vincent69001"
+      }
+    ],
+    "date": "2026-10-07",
+    "packageTag": "@platejs/docx-io@53.3.16",
+    "tag": "v53.3.16",
+    "title": "v53.3.16",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5147",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.16"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/ef90c271194ac7a4a7ba4c384a249c89ee101b43/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/ai`\n\n### Bug Fixes\n\n- Updated `@platejs/markdown`.\n\n`@platejs/markdown`\n\n### Bug Fixes\n\n-   - Deserialize `<ul>` and `<ol>` inside table cells as indent-list paragraphs, including nested lists, `<ol start>`, and checkbox todo items. ([#5139](https://github.com/udecode/plate/pull/5139))\n  - Serialize list paragraphs inside table cells as `<ul>` and `<ol>` instead of breaking the table row.\n  - Serialize line breaks inside table cells as `<br/>`.\n  - Fix inline HTML `<a href>` links losing their URL on deserialize.\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`, `@platejs/utils`.\n\n`@platejs/slate`\n\n### Bug Fixes\n\n- Updated `slate-react`. ([`a9bfa84`](https://github.com/udecode/plate/commit/a9bfa840b390bc2837fd50afd44a441d136e9f02))\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`.\n\n[`v53.3.14...v53.3.15`](https://github.com/udecode/plate/compare/v53.3.14...v53.3.15) · By [@OrbitingBucket](https://github.com/OrbitingBucket), [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)",
+    "contributors": [
+      {
+        "url": "https://github.com/OrbitingBucket",
+        "username": "@OrbitingBucket"
+      },
+      {
+        "url": "https://github.com/github-actions%5Bbot%5D",
+        "username": "@github-actions[bot]"
+      }
+    ],
+    "date": "2026-10-03",
+    "packageTag": "platejs@53.3.15",
+    "tag": "v53.3.15",
+    "title": "v53.3.15",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5133",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.15"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/16a0063d89d375031622bb7251f7de418bfcff70/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Keep HTML element transforms in their source document during DOCX paste. ([#5131](https://github.com/udecode/plate/pull/5131))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/utils`.\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`.\n\n[`v53.3.13...v53.3.14`](https://github.com/udecode/plate/compare/v53.3.13...v53.3.14) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-09-19",
+    "packageTag": "platejs@53.3.14",
+    "tag": "v53.3.14",
+    "title": "v53.3.14",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5132",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.14"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/f1b8e5e38ffcd8b8a4c40284ca3788fd4f3a8f03/packages/list/CHANGELOG.md",
+    "content": "`@platejs/list`\n\n### Bug Fixes\n\n- Fix the headless entry requiring React at runtime ([#5129](https://github.com/udecode/plate/pull/5129))\n\n[`v53.3.12...v53.3.13`](https://github.com/udecode/plate/compare/v53.3.12...v53.3.13) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-09-17",
+    "packageTag": "@platejs/list@53.3.13",
+    "tag": "v53.3.13",
+    "title": "v53.3.13",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5130",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.13"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/cee7a4ec0328718d8cf147094466b597215f5406/packages/ai/CHANGELOG.md",
+    "content": "`@platejs/ai`\n\n### Bug Fixes\n\n- Updated `@platejs/markdown`.\n\n`@platejs/markdown`\n\n### Bug Fixes\n\n- Preserve link text and destinations when serializing Markdown. ([#5120](https://github.com/udecode/plate/pull/5120))\n\n`@platejs/math`\n\n### Bug Fixes\n\n- Preserve equation text during HTML import, normalization and rendering, including persisted numeric and boolean values. Display missing or unsupported values as empty. ([#5120](https://github.com/udecode/plate/pull/5120))\n\n[`v53.3.11...v53.3.12`](https://github.com/udecode/plate/compare/v53.3.11...v53.3.12) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-09-06",
+    "packageTag": "@platejs/ai@53.3.12",
+    "tag": "v53.3.12",
+    "title": "v53.3.12",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5121",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.12"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/c6801761b10a81e54b8f2e91e5ecbd20414e2939/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Parse HTML strings in inert documents during deserialization ([#5117](https://github.com/udecode/plate/pull/5117))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/utils`.\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`.\n\n[`v53.3.10...v53.3.11`](https://github.com/udecode/plate/compare/v53.3.10...v53.3.11) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-09-04",
+    "packageTag": "platejs@53.3.11",
+    "tag": "v53.3.11",
+    "title": "v53.3.11",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5118",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.11"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/a22433b590050906290778bf60ff948570bfe10a/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Preserve HTML escaping when serializing editor content ([`1af4d23`](https://github.com/udecode/plate/commit/1af4d239b36642e94b222e18f17f2851a9cd65b3))\n\n`@platejs/docx-io`\n\n### Bug Fixes\n\n- Preserve equation output while ignoring unrelated XML ([`dfe6805`](https://github.com/udecode/plate/commit/dfe680559e9167b0e8aaf462488467783d4abc5b))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`, `@platejs/utils`.\n\n`@platejs/slate`\n\n### Bug Fixes\n\n- Updated `slate-react`. ([`12a034f`](https://github.com/udecode/plate/commit/12a034f7cfe698cc020fade0d4849373d6faa065))\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`.\n\n[`v53.3.9...v53.3.10`](https://github.com/udecode/plate/compare/v53.3.9...v53.3.10) · By [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)",
+    "contributors": [
+      {
+        "url": "https://github.com/github-actions%5Bbot%5D",
+        "username": "@github-actions[bot]"
+      }
+    ],
+    "date": "2026-09-04",
+    "packageTag": "platejs@53.3.10",
+    "tag": "v53.3.10",
+    "title": "v53.3.10",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5116",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.10"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/c60a7e6c8d99b0c3b6a15e0135f7ac8cdfe7f8e2/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Fix multiple `usePlateEditor` instances crashing when initialized with the same static value ([#5110](https://github.com/udecode/plate/pull/5110))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/utils`.\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`.\n\n[`v53.3.8...v53.3.9`](https://github.com/udecode/plate/compare/v53.3.8...v53.3.9) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-08-24",
+    "packageTag": "platejs@53.3.9",
+    "tag": "v53.3.9",
+    "title": "v53.3.9",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5111",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.9"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/cf08cbdc9158f8c9f0516d24ad0e973c895e8ebc/packages/dnd/CHANGELOG.md",
+    "content": "`@platejs/dnd`\n\n### Bug Fixes\n\n- Repair editor to editor dnd by providing a drop path ([#5103](https://github.com/udecode/plate/pull/5103))\n\n[`v53.3.7...v53.3.8`](https://github.com/udecode/plate/compare/v53.3.7...v53.3.8) · By [@delijah](https://github.com/delijah)",
+    "contributors": [
+      {
+        "url": "https://github.com/delijah",
+        "username": "@delijah"
+      }
+    ],
+    "date": "2026-08-24",
+    "packageTag": "@platejs/dnd@53.3.8",
+    "tag": "v53.3.8",
+    "title": "v53.3.8",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5108",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.8"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/af7b73f9fa46548f65ee337a46e7a99039cf4914/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Fix multiline plain-text pastes crashing when `maxLength` truncates across blocks ([#5101](https://github.com/udecode/plate/pull/5101))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/utils`.\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`.\n\n[`v53.3.6...v53.3.7`](https://github.com/udecode/plate/compare/v53.3.6...v53.3.7) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-08-20",
+    "packageTag": "platejs@53.3.7",
+    "tag": "v53.3.7",
+    "title": "v53.3.7",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5104",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.7"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/eaea1388e5daa20e9736019a34dacea430ddf84d/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Fix `editor.api.html.deserialize` returning unwrapped text nodes at the root for inline-only HTML ([#5098](https://github.com/udecode/plate/pull/5098))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/utils`.\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`.\n\n[`v53.3.5...v53.3.6`](https://github.com/udecode/plate/compare/v53.3.5...v53.3.6) · By [@NoiceHax](https://github.com/NoiceHax)",
+    "contributors": [
+      {
+        "url": "https://github.com/NoiceHax",
+        "username": "@NoiceHax"
+      }
+    ],
+    "date": "2026-08-15",
+    "packageTag": "platejs@53.3.6",
+    "tag": "v53.3.6",
+    "title": "v53.3.6",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5099",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.6"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/7d622cb3f6684b2535444a86d9d7a6c6ba215981/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/link`\n\n### Bug Fixes\n\n- Fix pasted plain text starting with `#` or `/` (e.g. `#!/bin/sh`) being autolinked ([#5096](https://github.com/udecode/plate/pull/5096))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`, `@platejs/utils`.\n\n`@platejs/slate`\n\n### Bug Fixes\n\n- Updated `slate`. ([`a102cd5`](https://github.com/udecode/plate/commit/a102cd5cd9d6488f5d0f3670cce40adb151893e6))\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`.\n\n[`v53.3.4...v53.3.5`](https://github.com/udecode/plate/compare/v53.3.4...v53.3.5) · By [@NoiceHax](https://github.com/NoiceHax), [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)",
+    "contributors": [
+      {
+        "url": "https://github.com/NoiceHax",
+        "username": "@NoiceHax"
+      },
+      {
+        "url": "https://github.com/github-actions%5Bbot%5D",
+        "username": "@github-actions[bot]"
+      }
+    ],
+    "date": "2026-08-15",
+    "packageTag": "platejs@53.3.5",
+    "tag": "v53.3.5",
+    "title": "v53.3.5",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5097",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.5"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/00ac8e7a3395c19268b99641265168a7584585d2/packages/plate/CHANGELOG.md",
+    "content": "`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`, `@platejs/utils`.\n\n`@platejs/slate`\n\n### Bug Fixes\n\n- Updated `slate`. ([`91f4c0c`](https://github.com/udecode/plate/commit/91f4c0c2af4c2f7e9724d242d2828b3bc0c82246))\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`.\n\n[`v53.3.3...v53.3.4`](https://github.com/udecode/plate/compare/v53.3.3...v53.3.4) · By [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)",
+    "contributors": [
+      {
+        "url": "https://github.com/github-actions%5Bbot%5D",
+        "username": "@github-actions[bot]"
+      }
+    ],
+    "date": "2026-08-14",
+    "packageTag": "platejs@53.3.4",
+    "tag": "v53.3.4",
+    "title": "v53.3.4",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5095",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.4"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/357c964f6b34faefd2588030c6fdee435a1dbe84/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/ai`\n\n### Bug Fixes\n\n- Updated `@platejs/markdown`.\n\n`@platejs/markdown`\n\n### Bug Fixes\n\n- Keep custom inline elements inside a table cell's paragraph when deserializing markdown. The cell deserializer recognised only `inlineEquation` as inline, so any other custom inline element was hoisted out of the paragraph and became its sibling. The cell serializer then separated those siblings with `<br/>`, and a second round trip turned that into a newline — silently destroying the element. The check now asks the editor whether the node is inline, which is the same answer the plugin configuration already holds. ([#5068](https://github.com/udecode/plate/pull/5068))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`, `@platejs/utils`.\n\n`@platejs/slate`\n\n### Bug Fixes\n\n- Updated `slate`, `slate-dom`, `slate-react`. ([`279fdae`](https://github.com/udecode/plate/commit/279fdae77739b0c549dc2c6d9c65b4512c62d9ce))\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/slate`.\n\n[`v53.3.2...v53.3.3`](https://github.com/udecode/plate/compare/v53.3.2...v53.3.3) · By [@WilliamPeralta](https://github.com/WilliamPeralta), [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)",
+    "contributors": [
+      {
+        "url": "https://github.com/WilliamPeralta",
+        "username": "@WilliamPeralta"
+      },
+      {
+        "url": "https://github.com/github-actions%5Bbot%5D",
+        "username": "@github-actions[bot]"
+      }
+    ],
+    "date": "2026-08-04",
+    "packageTag": "platejs@53.3.3",
+    "tag": "v53.3.3",
+    "title": "v53.3.3",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5055",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.3"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/71ea3916f76068a074f6312c45831278893d7b4b/packages/docx-io/CHANGELOG.md",
+    "content": "`@platejs/docx-io`\n\n### Bug Fixes\n\n- Skip remote image URLs by default during DOCX export. ([#5053](https://github.com/udecode/plate/pull/5053))\n\n  **Migration:** Convert trusted remote images to data URIs before calling `htmlToDocxBlob`, or pass `allowRemoteImages: true` only when the HTML source is trusted.\n\n[`v53.3.1...v53.3.2`](https://github.com/udecode/plate/compare/v53.3.1...v53.3.2) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-07-03",
+    "packageTag": "@platejs/docx-io@53.3.2",
+    "tag": "v53.3.2",
+    "title": "v53.3.2",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5054",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.2"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/4d792e09bec9a8692d22877a176fa2de9eb0e8df/packages/link/CHANGELOG.md",
+    "content": "`@platejs/link`\n\n### Bug Fixes\n\n- [`df0996f810d69f1d6660dbeac2a4cceda1d5e6dd`](https://github.com/udecode/plate/commit/df0996f810d69f1d6660dbeac2a4cceda1d5e6dd) – Fix Floating Link: ignore the Safari + Japanese IME composition-commit Enter (`keyCode === 229`, where `isComposing` is false) so it no longer submits the link mid-composition. Mirrors the Enter guard already used in `cmdk`.\n\n[`v53.3.0...v53.3.1`](https://github.com/udecode/plate/compare/v53.3.0...v53.3.1)",
+    "contributors": [],
+    "date": "2026-06-30",
+    "packageTag": "@platejs/link@53.3.1",
+    "tag": "v53.3.1",
+    "title": "v53.3.1",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5051",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.1"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/11a7c19f61d8880f64b51efd92c4cc661828573f/packages/ai/CHANGELOG.md",
+    "content": "`@platejs/ai`\n\n### Features\n\n- [`34fdca42f73e7dd30d94db31058c28662dbb9212`](https://github.com/udecode/plate/commit/34fdca42f73e7dd30d94db31058c28662dbb9212) – Support AI SDK v7 chat helper types.\n\n[`v53.2.4...v53.3.0`](https://github.com/udecode/plate/compare/v53.2.4...v53.3.0)",
+    "contributors": [],
+    "date": "2026-06-30",
+    "packageTag": "@platejs/ai@53.3.0",
+    "tag": "v53.3.0",
+    "title": "v53.3.0",
+    "type": "minor",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5050",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.3.0"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/2204a0c75870d3b61b7a5ade07a2a2fa99826e69/packages/plate/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Keep dependent Plate packages aligned with core patch releases. ([#5046](https://github.com/udecode/plate/pull/5046))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/utils`.\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Updated `@platejs/core`.\n\n[`v53.2.3...v53.2.4`](https://github.com/udecode/plate/compare/v53.2.3...v53.2.4) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-06-27",
+    "packageTag": "platejs@53.2.4",
+    "tag": "v53.2.4",
+    "title": "v53.2.4",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5047",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.2.4"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/f2c187c95fb7e4010e49b2ecb7becc5f22ae8b1b/packages/core/CHANGELOG.md",
+    "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Unset `_id` instead of setting it to `undefined` when inserting a node ([#5041](https://github.com/udecode/plate/pull/5041))\n\n`@platejs/suggestion`\n\n### Bug Fixes\n\n- Fix block removal suggestions missing `userId` metadata ([#5042](https://github.com/udecode/plate/pull/5042))\n\n[`v53.2.2...v53.2.3`](https://github.com/udecode/plate/compare/v53.2.2...v53.2.3) · By [@delijah](https://github.com/delijah), [@bbyiringiro](https://github.com/bbyiringiro)",
+    "contributors": [
+      {
+        "url": "https://github.com/delijah",
+        "username": "@delijah"
+      },
+      {
+        "url": "https://github.com/bbyiringiro",
+        "username": "@bbyiringiro"
+      }
+    ],
+    "date": "2026-06-27",
+    "packageTag": "@platejs/core@53.2.3",
+    "tag": "v53.2.3",
+    "title": "v53.2.3",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5044",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.2.3"
+  },
+  {
+    "changelogUrl": "https://github.com/udecode/plate/blob/1ea6fcb03d5daa068a346b1b12719b4b2ad0b053/packages/ai/CHANGELOG.md",
+    "content": "`@platejs/ai`\n\n### Bug Fixes\n\n- Preserve streaming trailing whitespace with markdown hard breaks. ([#5026](https://github.com/udecode/plate/pull/5026))\n\n`@platejs/markdown`\n\n### Bug Fixes\n\n- Serialize hard line breaks inside paragraph text nodes. ([#5026](https://github.com/udecode/plate/pull/5026))\n\n[`v53.2.1...v53.2.2`](https://github.com/udecode/plate/compare/v53.2.1...v53.2.2) · By [@zbeyens](https://github.com/zbeyens)",
+    "contributors": [
+      {
+        "url": "https://github.com/zbeyens",
+        "username": "@zbeyens"
+      }
+    ],
+    "date": "2026-06-17",
+    "packageTag": "@platejs/ai@53.2.2",
+    "tag": "v53.2.2",
+    "title": "v53.2.2",
+    "type": "patch",
+    "versionPackagePrUrl": "https://github.com/udecode/plate/pull/5035",
+    "url": "https://github.com/udecode/plate/releases/tag/v53.2.2"
+  },
+  {
     "changelogUrl": "https://github.com/udecode/plate/blob/2e675c6987b7946cae3cd8b368c8abb45add659e/packages/plate/CHANGELOG.md",
     "content": "`@platejs/core`\n\n### Bug Fixes\n\n- Add `node.isMetadataProp` and `editor.api.isElementStateEmpty` for element state checks. ([#5029](https://github.com/udecode/plate/pull/5029))\n\n`platejs`\n\n### Bug Fixes\n\n- Updated `@platejs/core`, `@platejs/utils`.\n\n`@platejs/utils`\n\n### Bug Fixes\n\n- Fix block placeholders on single empty list items. ([#5029](https://github.com/udecode/plate/pull/5029))\n\n[`v53.2.0...v53.2.1`](https://github.com/udecode/plate/compare/v53.2.0...v53.2.1) · By [@zbeyens](https://github.com/zbeyens)",
     "contributors": [

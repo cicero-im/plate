@@ -1,5 +1,76 @@
 # @platejs/core
 
+## 53.5.2
+
+### Patch Changes
+
+- [#5325](https://github.com/udecode/plate/pull/5325) by [@dylans](https://github.com/dylans) –
+  - Fix `useElement` and `usePath` re-rendering every descendant element when an ancestor element changes, such as every cell of a table on each keystroke in one cell. They now re-render only when their own element or path changes.
+
+## 53.3.18
+
+### Patch Changes
+
+- [#5172](https://github.com/udecode/plate/pull/5172) by [@dylans](https://github.com/dylans) – Upgrade to slate 0.142.1, slate-dom 0.142.0, slate-react 0.142.0 and slate-hyperscript 0.138.3.
+
+- [#5190](https://github.com/udecode/plate/pull/5190) by [@dylans](https://github.com/dylans) – Upgrade to slate 0.146.0, slate-dom 0.146.0 and slate-react 0.145.1.
+
+## 53.3.15
+
+## 53.3.14
+
+### Patch Changes
+
+- [#5131](https://github.com/udecode/plate/pull/5131) by [@zbeyens](https://github.com/zbeyens) – Keep HTML element transforms in their source document during DOCX paste.
+
+## 53.3.11
+
+### Patch Changes
+
+- [#5117](https://github.com/udecode/plate/pull/5117) by [@zbeyens](https://github.com/zbeyens) – Parse HTML strings in inert documents during deserialization
+
+## 53.3.10
+
+### Patch Changes
+
+- [`1af4d23`](https://github.com/udecode/plate/commit/1af4d239b36642e94b222e18f17f2851a9cd65b3) by [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D) – Preserve HTML escaping when serializing editor content
+
+## 53.3.9
+
+### Patch Changes
+
+- [#5110](https://github.com/udecode/plate/pull/5110) by [@zbeyens](https://github.com/zbeyens) – Fix multiple `usePlateEditor` instances crashing when initialized with the same static value
+
+## 53.3.7
+
+### Patch Changes
+
+- [#5101](https://github.com/udecode/plate/pull/5101) by [@zbeyens](https://github.com/zbeyens) – Fix multiline plain-text pastes crashing when `maxLength` truncates across blocks
+
+## 53.3.6
+
+### Patch Changes
+
+- [#5098](https://github.com/udecode/plate/pull/5098) by [@NoiceHax](https://github.com/NoiceHax) – Fix `editor.api.html.deserialize` returning unwrapped text nodes at the root for inline-only HTML
+
+## 53.3.5
+
+## 53.3.4
+
+## 53.3.3
+
+## 53.2.4
+
+### Patch Changes
+
+- [#5046](https://github.com/udecode/plate/pull/5046) by [@zbeyens](https://github.com/zbeyens) – Keep dependent Plate packages aligned with core patch releases.
+
+## 53.2.3
+
+### Patch Changes
+
+- [#5041](https://github.com/udecode/plate/pull/5041) by [@delijah](https://github.com/delijah) – Unset `_id` instead of setting it to `undefined` when inserting a node
+
 ## 53.2.1
 
 ### Patch Changes

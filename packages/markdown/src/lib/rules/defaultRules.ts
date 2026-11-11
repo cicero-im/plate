@@ -11,6 +11,7 @@ import {
   KEYS,
 } from 'platejs';
 import { normalizeDateValue } from '@platejs/date';
+import { Lexer } from 'marked';
 
 import type {
   MdBlockquote,
@@ -22,9 +23,6 @@ import type {
   MdMdxJsxTextElement,
   MdParagraph,
   MdRootContent,
-  MdTable,
-  MdTableCell,
-  MdTableRow,
 } from '../mdast';
 import type { MentionNode } from '../plugins/remarkMention';
 import type { MdRules } from '../types';
@@ -39,11 +37,12 @@ import { convertNodesSerialize } from '../serializer';
 import { columnRules } from './columnRules';
 import { fontRules } from './fontRules';
 import { mediaRules } from './mediaRules';
+import { tableRules } from './internal/tableRules';
 
-const BARE_AUTOLINK_PROTOCOL_REGEX = /^https?:\/\//i;
 import { parseAttributes, propsToAttributes } from './utils';
 
-const LEADING_NEWLINE_REGEX = /^\n/;
+// Other destinations need the link handler's Markdown escaping.
+const BARE_AUTOLINK_REGEX = /^https?:\/\/[^\s<>\\]+$/i;
 
 function isBoolean(value: any) {
   return (
@@ -136,12 +135,62 @@ const groupInlineChildrenIntoParagraphs = (
   ];
 };
 
+const MDX_COMMENT_REGEX = /^\/\*([\s\S]*)\*\/$/;
+
+const toHtmlComment = (value: string | undefined) => {
+  const match = MDX_COMMENT_REGEX.exec((value ?? '').trim());
+  return match ? `<!--${match[1]}-->` : null;
+};
+
+const normalizeParagraphLineBreaks = (
+  children: Descendant[],
+  options: { preserveEmptyParagraphs?: boolean }
+) =>
+  children.flatMap((child): Descendant[] => {
+    const text = (child as { text?: unknown }).text;
+
+    if ((child as { rawHtml?: unknown }).rawHtml) {
+      return [child];
+    }
+
+    if (
+      text === '' &&
+      children.length === 1 &&
+      options.preserveEmptyParagraphs !== false
+    ) {
+      return [{ ...child, text: '\u200B' }];
+    }
+
+    if (typeof text !== 'string' || !text.includes('\n')) {
+      return [child];
+    }
+
+    return text.split('\n').flatMap((part, index, parts): Descendant[] => {
+      const nodes: Descendant[] = [];
+
+      if (part) {
+        nodes.push({ ...child, text: part });
+      }
+      if (index < parts.length - 1) {
+        nodes.push({ type: 'break' } as Descendant);
+      }
+
+      return nodes;
+    });
+  });
+
 export const defaultRules: MdRules = {
   a: {
     deserialize: (mdastNode, deco, options) => ({
       children: convertChildrenDeserialize(mdastNode.children, deco, options),
       type: getPluginType(options.editor!, KEYS.a),
-      url: mdastNode.url,
+      url:
+        mdastNode.url ??
+        // remark-mdx parses inline HTML `<a href>` as JSX, so its URL is an attribute.
+        (mdastNode as any).attributes?.find(
+          (attribute: any) =>
+            attribute.name === 'href' && typeof attribute.value === 'string'
+        )?.value,
     }),
     serialize: (node, options): any => {
       const children = convertNodesSerialize(
@@ -153,13 +202,24 @@ export const defaultRules: MdRules = {
         children[0]?.type === 'text' &&
         children[0].value === node.url &&
         options.remarkStringifyOptions?.resourceLink !== true &&
-        BARE_AUTOLINK_PROTOCOL_REGEX.test(node.url ?? '');
+        BARE_AUTOLINK_REGEX.test(node.url ?? '');
 
       if (isBareAutolinkLiteral) {
-        return {
-          type: 'html',
-          value: node.url,
-        };
+        // GFM can trim punctuation from a literal URL even when it has no markup.
+        const tokens = Lexer.lexInline(node.url, { gfm: true });
+        const token = tokens[0];
+
+        if (
+          tokens.length === 1 &&
+          token?.type === 'link' &&
+          token.href === node.url &&
+          token.text === node.url
+        ) {
+          return {
+            type: 'html',
+            value: node.url,
+          };
+        }
       }
 
       return {
@@ -456,9 +516,26 @@ export const defaultRules: MdRules = {
     serialize: () => ({ type: 'thematicBreak' }),
   },
   html: {
-    deserialize: (mdastNode, _deco, _options) => ({
-      text: (mdastNode.value || '').replaceAll('<br />', '\n'),
-    }),
+    deserialize: (mdastNode, _deco, _options) =>
+      mdastNode.value === '<br />'
+        ? { text: '\n' }
+        : { rawHtml: true, text: mdastNode.value || '' },
+  },
+  mdxFlowExpression: {
+    deserialize: (mdastNode, _deco, options) => {
+      const comment = toHtmlComment(mdastNode.value);
+      if (comment === null) return [];
+      return {
+        children: [{ rawHtml: true, text: comment }],
+        type: getPluginType(options.editor!, KEYS.p),
+      };
+    },
+  },
+  mdxTextExpression: {
+    deserialize: (mdastNode) => {
+      const comment = toHtmlComment(mdastNode.value);
+      return comment === null ? [] : { rawHtml: true, text: comment };
+    },
   },
   img: {
     deserialize: (mdastNode, _deco, options) => {
@@ -824,21 +901,10 @@ export const defaultRules: MdRules = {
       return elements.length === 1 ? elements[0] : elements;
     },
     serialize: (node, options) => {
-      let enrichedChildren = node.children;
-
-      enrichedChildren = enrichedChildren.map((child) => {
-        if (child.text === '\n') {
-          return {
-            type: 'break',
-          } as any;
-        }
-
-        if (child.text === '' && options.preserveEmptyParagraphs !== false) {
-          return { ...child, text: '\u200B' };
-        }
-
-        return child;
-      });
+      const enrichedChildren = normalizeParagraphLineBreaks(
+        node.children,
+        options
+      );
 
       const convertedNodes = convertNodesSerialize(
         enrichedChildren,
@@ -927,129 +993,11 @@ export const defaultRules: MdRules = {
       };
     },
   },
-  table: {
-    deserialize: (node, deco, options) => {
-      const paragraphType = getPluginType(options.editor!, KEYS.p);
-      const rows =
-        node.children?.map((row, rowIndex) => ({
-          children:
-            row.children?.map((cell) => {
-              const cellType = rowIndex === 0 ? 'th' : 'td';
-
-              const cellChildren = convertChildrenDeserialize(
-                cell.children,
-                deco,
-                options
-              );
-              const groupedChildren: any[] = [];
-              let currentParagraphChildren: any[] = [];
-
-              for (const child of cellChildren) {
-                // Text nodes or inline elements should be grouped into paragraphs
-                if (!child.type || child.type === KEYS.inlineEquation) {
-                  currentParagraphChildren.push(child);
-                } else {
-                  // Block-level elements should end the current paragraph and be added directly
-                  if (currentParagraphChildren.length > 0) {
-                    groupedChildren.push({
-                      children: currentParagraphChildren,
-                      type: paragraphType,
-                    });
-                    currentParagraphChildren = [];
-                  }
-                  groupedChildren.push(child);
-                }
-              }
-
-              // Add any remaining paragraph child elements
-              if (currentParagraphChildren.length > 0) {
-                groupedChildren.push({
-                  children: currentParagraphChildren,
-                  type: paragraphType,
-                });
-              }
-
-              return {
-                children:
-                  groupedChildren.length > 0
-                    ? groupedChildren
-                    : [{ children: [{ text: '' }], type: paragraphType }],
-                type: getPluginType(options.editor!, cellType),
-              };
-            }) || [],
-          type: getPluginType(options.editor!, KEYS.tr),
-        })) || [];
-
-      return {
-        children: rows,
-        type: getPluginType(options.editor!, KEYS.table),
-      };
-    },
-    serialize: (node, options) => ({
-      children: convertNodesSerialize(
-        node.children,
-        options
-      ) as MdTable['children'],
-      type: 'table',
-    }),
-  },
-  td: {
-    serialize: (node, options) => {
-      const children = convertNodesSerialize(
-        node.children,
-        options
-      ) as MdTableCell['children'];
-
-      // Insert <br/> between multiple blocks in table cells
-      // since markdown tables don't support multiple blocks natively
-      if (children.length > 1) {
-        const result: MdTableCell['children'] = [];
-
-        for (let i = 0; i < children.length; i++) {
-          result.push(children[i]);
-
-          if (i < children.length - 1) {
-            result.push({ type: 'html', value: '<br/>' } as any);
-          }
-        }
-
-        return { children: result, type: 'tableCell' };
-      }
-
-      return { children, type: 'tableCell' };
-    },
-  },
   text: {
     deserialize: (mdastNode, deco) => ({
       ...deco,
-      text: mdastNode.value.replace(LEADING_NEWLINE_REGEX, ''),
+      text: mdastNode.value,
     }),
-  },
-  th: {
-    serialize: (node, options) => {
-      const children = convertNodesSerialize(
-        node.children,
-        options
-      ) as MdTableCell['children'];
-
-      // Insert <br/> between multiple blocks in table cells
-      // since markdown tables don't support multiple blocks natively
-      if (children.length > 1) {
-        const result: MdTableCell['children'] = [];
-
-        for (let i = 0; i < children.length; i++) {
-          result.push(children[i]);
-
-          if (i < children.length - 1) {
-            result.push({ type: 'html', value: '<br/>' } as any);
-          }
-        }
-
-        return { children: result, type: 'tableCell' };
-      }
-
-      return { children, type: 'tableCell' };
-    },
   },
   toc: {
     deserialize: (mdastNode, deco, options) => ({
@@ -1061,15 +1009,6 @@ export const defaultRules: MdRules = {
       children: convertNodesSerialize(node.children, options) as any,
       name: 'toc',
       type: 'mdxJsxFlowElement',
-    }),
-  },
-  tr: {
-    serialize: (node, options) => ({
-      children: convertNodesSerialize(
-        node.children,
-        options
-      ) as MdTableRow['children'],
-      type: 'tableRow',
     }),
   },
   underline: {
@@ -1092,6 +1031,7 @@ export const defaultRules: MdRules = {
   ...fontRules,
   ...mediaRules,
   ...columnRules,
+  ...tableRules,
 };
 
 export const buildRules = (editor: SlateEditor) => {

@@ -2,6 +2,129 @@
   "schemaVersion": 1,
   "events": [
     {
+      "id": "2026-10-09-fix-empty-demo-elements",
+      "href": "/registry/changelog/2026-10-09-fix-empty-demo-elements.json",
+      "status": "draft",
+      "kind": "fix",
+      "summary": "Fix demo values with empty elements",
+      "change": {
+        "type": "source",
+        "date": "2026-10-09",
+        "commits": []
+      },
+      "release": {
+        "status": "unresolved"
+      },
+      "targets": ["plugin-rules-demo", "code-block-demo"],
+      "entries": 2,
+      "diagnostics": []
+    },
+    {
+      "id": "2026-09-28-keep-comment-selection-visible",
+      "href": "/registry/changelog/2026-09-28-keep-comment-selection-visible.json",
+      "status": "draft",
+      "kind": "fix",
+      "summary": "Keep selected text visible while writing a comment",
+      "change": {
+        "type": "source",
+        "date": "2026-09-28",
+        "commits": []
+      },
+      "release": {
+        "status": "unresolved"
+      },
+      "targets": ["block-discussion", "comment-kit"],
+      "entries": 1,
+      "diagnostics": []
+    },
+    {
+      "id": "2026-09-27-harden-media-file-urls",
+      "href": "/registry/changelog/2026-09-27-harden-media-file-urls.json",
+      "status": "draft",
+      "kind": "fix",
+      "summary": "Limit file downloads to supported URLs",
+      "change": {
+        "type": "source",
+        "date": "2026-09-27",
+        "commits": []
+      },
+      "release": {
+        "status": "unresolved"
+      },
+      "targets": ["media-file-node"],
+      "entries": 1,
+      "diagnostics": []
+    },
+    {
+      "id": "2026-09-06-editor-content-and-service-defaults",
+      "href": "/registry/changelog/2026-09-06-editor-content-and-service-defaults.json",
+      "status": "draft",
+      "kind": "fix",
+      "summary": "Preserve editor content and configure service credentials",
+      "change": {
+        "type": "source",
+        "date": "2026-09-06",
+        "commits": []
+      },
+      "release": {
+        "status": "unresolved"
+      },
+      "targets": [
+        "equation-node",
+        "equation-node-static",
+        "media-preview-dialog",
+        "ai-api",
+        "copilot-api",
+        "media-uploadthing-api",
+        "column-node",
+        "table-node"
+      ],
+      "entries": 5,
+      "diagnostics": []
+    },
+    {
+      "id": "2026-07-09-table-toolbar-single-cell-selection",
+      "href": "/registry/changelog/2026-07-09-table-toolbar-single-cell-selection.json",
+      "status": "draft",
+      "kind": "fix",
+      "summary": "Keep table floating toolbar row/column controls while a single cell's content is selected",
+      "change": {
+        "type": "source",
+        "date": "2026-07-09",
+        "commits": []
+      },
+      "release": {
+        "status": "unresolved"
+      },
+      "targets": ["table-node"],
+      "entries": 1,
+      "diagnostics": []
+    },
+    {
+      "id": "2026-06-28-ai-sdk-v7",
+      "href": "/registry/changelog/2026-06-28-ai-sdk-v7.json",
+      "status": "draft",
+      "kind": "wiring",
+      "summary": "Use AI SDK v7 for copied AI registry code",
+      "change": {
+        "type": "source",
+        "date": "2026-06-28",
+        "commits": []
+      },
+      "release": {
+        "status": "unresolved"
+      },
+      "targets": [
+        "ai-api",
+        "copilot-api",
+        "use-chat",
+        "markdown-joiner-transform",
+        "ai-menu"
+      ],
+      "entries": 1,
+      "diagnostics": []
+    },
+    {
       "id": "2026-06-15-editor-fix-preserved-space-wrapping",
       "href": "/registry/changelog/2026-06-15-editor-fix-preserved-space-wrapping.json",
       "status": "draft",
